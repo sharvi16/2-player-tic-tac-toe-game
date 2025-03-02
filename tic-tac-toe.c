@@ -14,8 +14,7 @@ void print_board(char board[3][3]);
 int check_win(char board[3][3],char player);
 int check_draw(char board[3][3]);
 void play_game();
-void player1_move(char board[3][3],char player);
-void player2_move(char board[3][3],char player);
+void player_move(char board[3][3],char player);
 
 int main()
 {
@@ -120,7 +119,7 @@ void play_game()
             {
                 s.player1++;
                 print_board(board); 
-                printf("\nCongratulations! You Won!! ");
+                printf("\nCongratulations! Player X won!! ");
                 break;
             }
             current_player='0';
@@ -134,7 +133,7 @@ void play_game()
             {
                 s.player2++;
                 print_board(board); 
-                printf("\nI won!! Let's play again...");
+                printf("\nnCongratulations! Player 0 won!!");
                 break;
             }
             current_player='X';
@@ -149,7 +148,7 @@ void play_game()
     }
 }
 
-void player1_move(char board[3][3],char player)
+void player_move(char board[3][3],char player)
 {
     int row,col;
     do
@@ -160,17 +159,4 @@ void player1_move(char board[3][3],char player)
         row--,col--;
     } while (row<0 || col<0 || row>2 || col>2 || board[row][col] !=' ');
     board[row][col]=player;  
-}
-
-void player2_move(char board[3][3],char player)
-{
-     int row,col;
-    do
-    {
-        printf("\nPlayer %c's turn",player);
-        printf("\nEnter row and column(1-3): ");
-        scanf("%d%d",&row,&col);
-        row--,col--;
-    } while (row<0 || col<0 || row>2 || col>2 || board[row][col] !=' ');
-    board[row][col]=player;
 }
