@@ -142,6 +142,7 @@ void play_game()
         if(check_draw(board))
         {
             s.draw++;
+            print_board(board);
             printf("\nIt's a draw!");  
             break;
         }
